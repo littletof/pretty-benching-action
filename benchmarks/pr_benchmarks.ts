@@ -118,6 +118,7 @@ const thresholds = {
 
 const indicators = [
   { benches: /NP/, modFn: () => '%' },
+  { benches: /array/, modFn: () => '🎹'}
   {
     benches: /Standing/,
     modFn: () => "🚀",
@@ -142,7 +143,7 @@ runBenchmarks(
     groups: [
       {include: /array/, name: 'Things with arrays', description: 'Anything that has to do with arrays', afterTable: 'You can do things before and after the table in each group'},
       {include: /otating/, name: 'Rotated things', description: 'Here are things that were rotated', afterTable: 'Some different text after the table'},
-      {include: /Proving|Standing/, name: 'Extra'}
+      {include: /Proving|Standing/, name: 'Extra', description: 'You can have different columns in different groups. For example you can add indicators like in `prettyBenchmarkProgress` or `prettyBenchmarkResult`', columns: [indicatorColumn(indicators), ...defaultColumns]}
     ]
   }
   ));
