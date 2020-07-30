@@ -117,7 +117,7 @@ const thresholds = {
 };
 
 const indicators = [
-  { benches: /NP/, modFn: () => '%' },
+  { benches: /NP/, modFn: () => colors.magenta('%') },
   { benches: /array/, modFn: () => '🎹'},
   {
     benches: /Standing/,
