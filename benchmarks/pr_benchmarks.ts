@@ -129,6 +129,7 @@ const indicators = [
 runBenchmarks(
   { silent: true, skip: /_long/ }
 ).then(prettyBenchmarkDown(
+  console.log,
   {
     title: 'An example benchMarkdown',
     description: 'Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks.',
