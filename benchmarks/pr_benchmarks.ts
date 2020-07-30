@@ -138,7 +138,6 @@ runBenchmarks(
       {title: 'formatter', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom ' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }},
       {title: 'undefined', propertyKey: '_nokey'},
       {title: 'bad config'},
-      thresholdsColumn(thresholds),
       thresholdResultColumn(thresholds),
     ],
     groups: [
