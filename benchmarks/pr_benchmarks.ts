@@ -90,14 +90,9 @@ runBenchmarks(
     description: 'long text',
     afterTables: '---\n This can be a footer or something else',
     columns: [
-      indicatorColumn(indicators),
       ...defaultColumns,
-      thresholdResultColumn(thresholds),
       thresholdsColumn(thresholds),
-      thresholdsColumn(thresholds, true),
-      {title: 'test', propertyKey: 'runsCount'},
-      {title: 'noproperty'},
-      {title: 'undefined', propertyKey: 'noKeyLikeThis'},
+      thresholdResultColumn(thresholds),
       {title: 'format', toFixed: 3, formatter: (result: BenchmarkResult, cd: any) => { return result.measuredRunsAvgMs.toFixed(cd.toFixed) + ' tests'; }}
     ]
   }
