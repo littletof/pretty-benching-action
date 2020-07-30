@@ -130,14 +130,14 @@ runBenchmarks(
 ).then(prettyBenchmarkDown(
   {
     title: 'An example benchMarkdown',
-    description: 'Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks too.',
+    description: 'Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks.',
     afterTables: '---\n This can be a footer or something else',
     columns: [
       indicatorColumn(indicators),
       ...defaultColumns,
+      {title: 'format', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom ' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }},
       thresholdsColumn(thresholds),
       thresholdResultColumn(thresholds),
-      {title: 'format', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }}
     ],
     groups: [
       {include: /array/, name: 'Things with arrays', description: 'Anything that has to do with arrays', afterTable: 'You can do things before and after the table in each group'},
