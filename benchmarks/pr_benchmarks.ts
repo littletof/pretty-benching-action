@@ -135,7 +135,9 @@ runBenchmarks(
     afterTables: '---\n This can be a footer or something else',
     columns: [
       ...defaultColumns,
-      {title: 'format', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom ' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }},
+      {title: 'formatter', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom ' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }},
+      {title: 'undefined', propertyKey: '_nokey'},
+      {title: 'bad config'},
       thresholdsColumn(thresholds),
       thresholdResultColumn(thresholds),
     ],
