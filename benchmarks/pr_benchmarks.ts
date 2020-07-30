@@ -21,6 +21,48 @@ bench({
 });
 
 bench({
+  name: "Ungrouped 1",
+  runs: 1000,
+  func(b): void {
+    b.start();
+    let a = new Array(500);
+    for (let i = 0; i < 500; i++) {
+      a.pop();
+      a = a.reverse();
+    }
+    b.stop();
+  },
+});
+
+bench({
+  name: "Ungrouped 2",
+  runs: 1000,
+  func(b): void {
+    b.start();
+    let a = new Array(500);
+    for (let i = 0; i < 500; i++) {
+      a.pop();
+      a = a.reverse();
+    }
+    b.stop();
+  },
+});
+
+bench({
+  name: "Rotating other things",
+  runs: 1000,
+  func(b): void {
+    b.start();
+    let a = new Array(500);
+    for (let i = 0; i < 500; i++) {
+      a.pop();
+      a = a.reverse();
+    }
+    b.stop();
+  },
+});
+
+bench({
   name: "Rotating arrays",
   runs: 1000,
   func(b): void {
@@ -71,13 +113,14 @@ bench({
 
 const thresholds = {
   "Rotating arrays": { green: 2.5, yellow: 3.4 },
+  "Sorting arrays": { green: 0.5, yellow: 2 },
 };
 
 const indicators = [
-  { benches: /NP/, modFn: colors.white, tableColor: colors.blue },
+  { benches: /NP/, modFn: () => '%' },
   {
     benches: /Standing/,
-    modFn: () => colors.bgRed("%"),
+    modFn: () => "🚀",
     tableColor: colors.magenta,
   },
 ];
@@ -86,14 +129,20 @@ runBenchmarks(
   { silent: true, skip: /_long/ }
 ).then(prettyBenchmarkDown(
   {
-    title: 'MY example benchMarkdown',
-    description: 'long text',
+    title: 'An example benchMarkdown',
+    description: 'Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks too.',
     afterTables: '---\n This can be a footer or something else',
     columns: [
+      indicatorColumn(indicators),
       ...defaultColumns,
       thresholdsColumn(thresholds),
       thresholdResultColumn(thresholds),
-      {title: 'format', toFixed: 3, formatter: (result: BenchmarkResult, cd: any) => { return result.measuredRunsAvgMs.toFixed(cd.toFixed) + ' tests'; }}
+      {title: 'format', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }}
+    ],
+    groups: [
+      {include: /array/, name: 'Things with arrays', description: 'Anything that has to do with arrays', afterTable: 'You can do things before and after the table in each group'},
+      {include: /otating/, name: 'Rotated things', description: 'Here are things that were rotated', afterTable: 'Some different text after the table'},
+      {include: /Proving|Standing/, name: 'Extra'}
     ]
   }
   ));
