@@ -1,14 +1,19 @@
 import {
-  prettyBenchmarkDown, defaultColumns, indicatorColumn, thresholdResultColumn, thresholdsColumn
+  prettyBenchmarkDown,
+  defaultColumns,
+  indicatorColumn,
+  thresholdResultColumn,
+  thresholdsColumn,
+  extraMetricsColumns,
 } from "https://deno.land/x/pretty_benching@feature%2Fbenchmark_down/pretty_benchmark_down.ts";
 
 import {
   runBenchmarks,
   bench,
   BenchmarkResult,
-} from "https://deno.land/std@0.61.0/testing/bench.ts";
+} from "https://deno.land/std@0.62.0/testing/bench.ts";
 
-import * as colors from "https://deno.land/std@0.61.0/fmt/colors.ts";
+import * as colors from "https://deno.land/std@0.62.0/fmt/colors.ts";
 
 bench({
   name: "Sorting arrays",
@@ -117,8 +122,8 @@ const thresholds = {
 };
 
 const indicators = [
-  { benches: /NP/, modFn: () => colors.magenta('%') },
-  { benches: /array/, modFn: () => '🎹'},
+  { benches: /NP/, modFn: () => colors.magenta("%") },
+  { benches: /array/, modFn: () => "🎹" },
   {
     benches: /Standing/,
     modFn: () => "🚀",
@@ -127,42 +132,68 @@ const indicators = [
 ];
 
 runBenchmarks(
-  { silent: true, skip: /_long/ }
+  { silent: true, skip: /_long/ },
 ).then(prettyBenchmarkDown(
   console.log,
   {
-    title: 'An example benchMarkdown',
-    description: 'Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks.',
-    afterTables: '---\n This can be a footer or something else',
+    title: "An example benchMarkdown",
+    description:
+      "Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks.",
+    afterTables: "---\nThis can be a footer or something else",
     columns: [
       ...defaultColumns,
-      {title: 'formatter', toFixed: 3, align:'right', formatter: (result: BenchmarkResult, cd: any) => { return 'custom ' + result.measuredRunsAvgMs.toFixed(cd.toFixed); }},
-      {title: 'undefined', propertyKey: '_nokey'},
-      {title: 'bad config'},
+      {
+        title: "formatter",
+        toFixed: 3,
+        align: "right",
+        formatter: (result: BenchmarkResult, cd: any) => {
+          return "custom " + result.measuredRunsAvgMs.toFixed(cd.toFixed);
+        },
+      },
+      { title: "undefined", propertyKey: "_nokey" },
+      { title: "bad config" },
       thresholdResultColumn(thresholds),
     ],
     groups: [
       {
-        include: /array/, name: 'Things with arrays', description: 'Anything that has to do with arrays', afterTable: 'You can do things before and after the table in each group'
+        include: /array/,
+        name: "Things with arrays",
+        description: "Anything that has to do with arrays",
+        afterTable:
+          "You can do things before and after the table in each group",
       },
       {
-        include: /otating/, name: 'Rotated things', description: 'Here are things that were rotated', afterTable: 'Some different text after the table',
+        include: /otating/,
+        name: "Rotated things",
+        description: "Here are things that were rotated",
+        afterTable: "Some different text after the table",
         columns: [
           indicatorColumn(indicators),
           ...defaultColumns,
           thresholdsColumn(thresholds),
           thresholdsColumn(thresholds, true),
           thresholdResultColumn(thresholds),
-        ]
+        ],
       },
       {
-        include: /Proving|Standing/, name: 'Extra', description: 'You can have different columns in different groups. For example you can add indicators like in `prettyBenchmarkProgress` or `prettyBenchmarkResult`',
+        include: /./,
+        name: "Extra metrics",
+        description: "You can add extraMetrics columns too",
+        columns: [
+          ...defaultColumns,
+          ...extraMetricsColumns({ ignoreSingleRuns: true }),
+        ],
+      },
+      {
+        include: /Proving|Standing/,
+        name: "Extra",
+        description:
+          "You can have different columns in different groups. For example you can add indicators like in `prettyBenchmarkProgress` or `prettyBenchmarkResult`",
         columns: [
           indicatorColumn(indicators),
-          ...defaultColumns
-        ]
-      }
-    ]
-  }
-  ));
-
+          ...defaultColumns,
+        ],
+      },
+    ],
+  },
+));
