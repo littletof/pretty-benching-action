@@ -122,7 +122,7 @@ bench({
 const thresholds = {
   "Rotating arrays": { green: 3.5, yellow: 4.4 },
   "Sorting arrays": { green: 0.5, yellow: 2 },
-  "Proving NP==P": { green: 4141, yellow: 4600},
+  "Proving NP==P": { green: 4141, yellow: 6000},
   "Standing out": { green: 0.300, yellow: 0.330 }
 };
 
@@ -208,7 +208,7 @@ runBenchmarks(
   {
     title: "An example benchMarkdown",
     description: (runResult: BenchmarkRunResult) => `This markdown was generated with the use of \`prettyBenchmarkDown\`, the only things changed, are the code blocks, which were inserted afterwards.\nIf you use a function for the \`description\` or \`afterTables\`, you can process the results here as well: \n\n > In this benchmark ${runResult.results.length} benches were run, ${runResult.filtered} were filtered.`,
-    afterTables: "\n---\n\nThis behaves the same as \`description\`, it just puts this at the bottom of the markdown.\nHere its defined with a simple string",
+    afterTables: "\n---\n\nThis is the `afterTables`. This behaves the same as \`description\`, it just puts this at the bottom of the markdown.\nHere its defined with a simple string.\n\nCheck out the Github Action, which comments a markdown like this on PRs: $link",
     groups: [
       {
         include: /array/,
@@ -257,9 +257,9 @@ runBenchmarks(
         ],
       },
       {
-        include: /./,
+        include: /i/,
         name: "Extra metrics",
-        description: "You can add `extraMetrics` columns too. If you set `ignoreSingleRuns` to `true`, it wont show values on rows, where runCount is 1.",
+        description: "You can add `extraMetrics` columns too. In its `metrics` array you can define which columns you want. If you set `ignoreSingleRuns` to `true`, it wont show values on rows, where runCount is 1.",
         columns: [
           ...defaultColumns,
           ...extraMetricsColumns({ ignoreSingleRuns: true }),
