@@ -120,7 +120,7 @@ bench({
 });
 
 const thresholds = {
-  "Rotating arrays": { green: 2.5, yellow: 3.4 },
+  "Rotating arrays": { green: 3.5, yellow: 4.4 },
   "Sorting arrays": { green: 0.5, yellow: 2 },
   "Proving NP==P": { green: 4141, yellow: 4600},
   "Standing out": { green: 0.300, yellow: 0.330 }
@@ -207,7 +207,7 @@ runBenchmarks(
   console.log,
   {
     title: "An example benchMarkdown",
-    description: (runResult: BenchmarkRunResult) => `This markdown was generated with the use of \`prettyBenchmarkDown\`, the only things changed, are the code blocks, which were inserted afterwards.\nIf you use a function for the \`description\`, you can process the results here as well: \n\n > In this benchmark ${runResult.results.length} benches were run, ${runResult.filtered} were filtered.`,
+    description: (runResult: BenchmarkRunResult) => `This markdown was generated with the use of \`prettyBenchmarkDown\`, the only things changed, are the code blocks, which were inserted afterwards.\nIf you use a function for the \`description\` or \`afterTables\`, you can process the results here as well: \n\n > In this benchmark ${runResult.results.length} benches were run, ${runResult.filtered} were filtered.`,
     afterTables: "\n---\n\nThis behaves the same as \`description\`, it just puts this at the bottom of the markdown.\nHere its defined with a simple string",
     groups: [
       {
@@ -222,7 +222,9 @@ runBenchmarks(
         name: "Custom columns",
         afterTable: "If you see `-`, that means the value there was `undefined`, if you see `*` it means that column is badly configured, no `formatter` or `propertyKey` was defined.",
         columns: [
-          ...defaultColumns,
+          defaultColumns[0],
+          defaultColumns[1],
+          defaultColumns[2],
           {
             title: 'CustomTotal',
             propertyKey: 'totalMs',
