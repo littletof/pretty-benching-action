@@ -15,7 +15,7 @@ jobs:
       - name: Bench It
         run: deno run --allow-hrtime ./benchmarks/pr_benchmarks.ts | tee ./benchmarks/pr_benchmark.md
       - name: Add link
-        run: echo "<p align=\"right\"><a href=\"https://github.com/littletof/prettyBenching\">@prettyBenching</a></p>" >> ./benchmarks/pr_benchmark.md
+        run: echo "<p align=\"right\"><a href=\"https://github.com/littletof/prettyBenching\">@prettyBenching</a></p>" | tee ./benchmarks/pr_benchmark.md
       - uses: harupy/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
