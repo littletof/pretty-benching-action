@@ -7,7 +7,7 @@ import {
   extraMetricsColumns,
   GroupDefinition,
   ColumnDefinition,
-} from "https://deno.land/x/pretty_benching@feature%2Fbenchmark_down/pretty_benchmark_down.ts";
+} from "https://deno.land/x/pretty_benching@v0.2.1/pretty_benchmark_down.ts";
 
 import {
   runBenchmarks,
@@ -139,70 +139,6 @@ const indicators = [
 runBenchmarks(
   { silent: true, skip: /_long/ },
 )
-/* .then(prettyBenchmarkDown(
-  console.log,
-  {
-    title: "An example benchMarkdown",
-    description:
-      "Here you can tell anything you want, like what this benchmark is for and requirements for the PR to get merged.\nYou can also group benchmarks.",
-    afterTables: "---\nThis can be a footer or something else",
-    columns: [
-      ...defaultColumns,
-      {
-        title: "formatter",
-        toFixed: 3,
-        align: "right",
-        formatter: (result: BenchmarkResult, cd: any) => {
-          return "custom " + result.measuredRunsAvgMs.toFixed(cd.toFixed);
-        },
-      },
-      { title: "undefined", propertyKey: "_nokey" },
-      { title: "bad config" },
-      thresholdResultColumn(thresholds),
-    ],
-    groups: [
-      {
-        include: /array/,
-        name: "Things with arrays",
-        description: "Anything that has to do with arrays",
-        afterTable:
-          "You can do things before and after the table in each group",
-      },
-      {
-        include: /otating/,
-        name: "Rotated things",
-        description: "Here are things that were rotated",
-        afterTable: "Some different text after the table",
-        columns: [
-          indicatorColumn(indicators),
-          ...defaultColumns,
-          thresholdsColumn(thresholds),
-          thresholdsColumn(thresholds, true),
-          thresholdResultColumn(thresholds),
-        ],
-      },
-      {
-        include: /./,
-        name: "Extra metrics",
-        description: "You can add extraMetrics columns too",
-        columns: [
-          ...defaultColumns,
-          ...extraMetricsColumns({ ignoreSingleRuns: true }),
-        ],
-      },
-      {
-        include: /Proving|Standing/,
-        name: "Extra",
-        description:
-          "You can have different columns in different groups. For example you can add indicators like in `prettyBenchmarkProgress` or `prettyBenchmarkResult`",
-        columns: [
-          indicatorColumn(indicators),
-          ...defaultColumns,
-        ],
-      },
-    ],
-  },
-));*/
 .then(prettyBenchmarkDown(
   console.log,
   {
@@ -268,6 +204,3 @@ runBenchmarks(
     ]
   },
 ));
-//.then(prettyBenchmarkDown(console.log))
-
-// \n\`\`\`ts\n THE WHOLE GENERATOR CODE \n\`\`\`\n
