@@ -7,7 +7,7 @@ import {
   extraMetricsColumns,
   GroupDefinition,
   ColumnDefinition,
-} from "https://deno.land/x/pretty_benching@feature%2Fbenchmark_down/pretty_benchmark_down.ts";
+} from "https://deno.land/x/pretty_benching@v0.2.1/pretty_benchmark_down.ts";
 
 import {
   runBenchmarks,
