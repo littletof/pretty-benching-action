@@ -1,8 +1,8 @@
 {
   "history": [
     {
-      "date": "2020-09-18T13:02:01.609Z",
-      "id": "v0.0.3",
+      "date": "2020-09-18T13:13:14.280Z",
+      "id": "v0.0.4",
       "runExtras": {
         "deno": "1.4.0",
         "v8": "8.7.75",
@@ -10,39 +10,39 @@
       },
       "benchmarks": {
         "Sorting arrays": {
-          "measuredRunsAvgMs": 0.40283541700000747,
+          "measuredRunsAvgMs": 0.44019807700000163,
           "runsCount": 4000,
-          "totalMs": 1611.3416680000298
+          "totalMs": 1760.7923080000064
         },
         "Ungrouped 1": {
-          "measuredRunsAvgMs": 2.529461526000002,
+          "measuredRunsAvgMs": 2.725578948000003,
           "runsCount": 1000,
-          "totalMs": 2529.4615260000023
+          "totalMs": 2725.578948000003
         },
         "Ungrouped 2": {
-          "measuredRunsAvgMs": 2.5529851500000023,
+          "measuredRunsAvgMs": 2.706123107999989,
           "runsCount": 1000,
-          "totalMs": 2552.9851500000022
+          "totalMs": 2706.123107999989
         },
         "Rotating other things": {
-          "measuredRunsAvgMs": 2.555400350000018,
+          "measuredRunsAvgMs": 2.7366606829999984,
           "runsCount": 1000,
-          "totalMs": 2555.400350000018
+          "totalMs": 2736.6606829999982
         },
         "Rotating arrays": {
-          "measuredRunsAvgMs": 2.5633431949999905,
+          "measuredRunsAvgMs": 2.7845824650000157,
           "runsCount": 1000,
-          "totalMs": 2563.3431949999904
+          "totalMs": 2784.582465000016
         },
         "Proving NP==P": {
-          "measuredRunsAvgMs": 4905.978179,
+          "measuredRunsAvgMs": 5176.539854999999,
           "runsCount": 1,
-          "totalMs": 4905.978179
+          "totalMs": 5176.539854999999
         },
         "Standing out": {
-          "measuredRunsAvgMs": 0.4255448090000136,
+          "measuredRunsAvgMs": 0.45673630000002957,
           "runsCount": 1000,
-          "totalMs": 425.54480900001363
+          "totalMs": 456.7363000000296
         }
       }
     }
