@@ -11,9 +11,9 @@ jobs:
       - name: Install deno
         uses: denolib/setup-deno@master
         with:
-          deno-version: 1.2.1
+          deno-version: 1.4.0
       - name: Bench It
-        run: deno run --allow-hrtime ./benchmarks/pr_benchmarks.ts | tee ./benchmarks/pr_benchmark.md
+        run: deno run --allow-hrtime --allow-write ./benchmarks/pr_benchmarks.ts --save-markdown
       # Feel free to remove this 'Add link' step
       - name: Add link
         run: echo "<p align=\"right\"><a href=\"https://github.com/littletof/prettyBenching\">@prettyBenching</a></p>" | tee -a ./benchmarks/pr_benchmark.md
