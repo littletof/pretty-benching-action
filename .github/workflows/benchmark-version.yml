@@ -17,7 +17,7 @@ jobs:
         - name: Set output
           run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
         - name: Bench It
-          run: deno run --allow-hrtime --allow-write ./benchmarks/pr_benchmarks.ts --save-history --id=${{ env.RELEASE_VERSION }}
+          run: deno run --allow-hrtime --allow-write --allow-read ./benchmarks/pr_benchmarks.ts --save-history --id=${{ env.RELEASE_VERSION }}
         - uses: EndBug/add-and-commit@v4
           with:
             message: 'Benchmark history for ${{ env.RELEASE_VERSION }}'
