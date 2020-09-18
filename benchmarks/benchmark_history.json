@@ -91,6 +91,52 @@
           "totalMs": 396.8803350000144
         }
       }
+    },
+    {
+      "date": "2020-09-18T13:23:46.449Z",
+      "id": "v0.0.6",
+      "runExtras": {
+        "deno": "1.4.0",
+        "v8": "8.7.75",
+        "typescript": "4.0.2"
+      },
+      "benchmarks": {
+        "Sorting arrays": {
+          "measuredRunsAvgMs": 0.4920733419999993,
+          "runsCount": 4000,
+          "totalMs": 1968.2933679999971
+        },
+        "Ungrouped 1": {
+          "measuredRunsAvgMs": 3.03323201300001,
+          "runsCount": 1000,
+          "totalMs": 3033.23201300001
+        },
+        "Ungrouped 2": {
+          "measuredRunsAvgMs": 3.0442347639999836,
+          "runsCount": 1000,
+          "totalMs": 3044.2347639999834
+        },
+        "Rotating other things": {
+          "measuredRunsAvgMs": 3.0313798369999914,
+          "runsCount": 1000,
+          "totalMs": 3031.3798369999913
+        },
+        "Rotating arrays": {
+          "measuredRunsAvgMs": 1.1193808269999899,
+          "runsCount": 1000,
+          "totalMs": 1119.38082699999
+        },
+        "Proving NP==P": {
+          "measuredRunsAvgMs": 5371.679383999999,
+          "runsCount": 1,
+          "totalMs": 5371.679383999999
+        },
+        "Standing out": {
+          "measuredRunsAvgMs": 0.487734418,
+          "runsCount": 1000,
+          "totalMs": 487.734418
+        }
+      }
     }
   ]
 }
