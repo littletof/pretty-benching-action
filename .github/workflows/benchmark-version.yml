@@ -21,6 +21,7 @@ jobs:
         - uses: EndBug/add-and-commit@v4
           with:
             message: 'Benchmark history for ${{ env.RELEASE_VERSION }}'
+            ref: 'master'
           env:
             # This is necessary in order to push a commit to the repo
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
