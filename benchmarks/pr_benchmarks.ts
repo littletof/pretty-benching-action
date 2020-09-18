@@ -51,8 +51,8 @@ bench({
   runs: 1000,
   func(b): void {
     b.start();
-    let a = new Array(500);
-    for (let i = 0; i < 500; i++) {
+    let a = new Array(300);
+    for (let i = 0; i < 300; i++) {
       a.pop();
       a = a.reverse();
     }
@@ -79,8 +79,8 @@ bench({
   runs: 1000,
   func(b): void {
     b.start();
-    let a = new Array(300);
-    for (let i = 0; i < 300; i++) {
+    let a = new Array(500);
+    for (let i = 0; i < 500; i++) {
       a.pop();
       a = a.reverse();
     }
@@ -93,7 +93,7 @@ bench({
   runs: 1,
   func(b): void {
     b.start();
-    for (let i = 0; i < 1e9 / 5; i++) {
+    for (let i = 0; i < 1e9 / 7; i++) {
       const NPeP = Math.random() === Math.random();
     }
     b.stop();
