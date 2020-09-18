@@ -1,0 +1,50 @@
+{
+  "history": [
+    {
+      "date": "2020-09-18T13:02:01.609Z",
+      "id": "v0.0.3",
+      "runExtras": {
+        "deno": "1.4.0",
+        "v8": "8.7.75",
+        "typescript": "4.0.2"
+      },
+      "benchmarks": {
+        "Sorting arrays": {
+          "measuredRunsAvgMs": 0.40283541700000747,
+          "runsCount": 4000,
+          "totalMs": 1611.3416680000298
+        },
+        "Ungrouped 1": {
+          "measuredRunsAvgMs": 2.529461526000002,
+          "runsCount": 1000,
+          "totalMs": 2529.4615260000023
+        },
+        "Ungrouped 2": {
+          "measuredRunsAvgMs": 2.5529851500000023,
+          "runsCount": 1000,
+          "totalMs": 2552.9851500000022
+        },
+        "Rotating other things": {
+          "measuredRunsAvgMs": 2.555400350000018,
+          "runsCount": 1000,
+          "totalMs": 2555.400350000018
+        },
+        "Rotating arrays": {
+          "measuredRunsAvgMs": 2.5633431949999905,
+          "runsCount": 1000,
+          "totalMs": 2563.3431949999904
+        },
+        "Proving NP==P": {
+          "measuredRunsAvgMs": 4905.978179,
+          "runsCount": 1,
+          "totalMs": 4905.978179
+        },
+        "Standing out": {
+          "measuredRunsAvgMs": 0.4255448090000136,
+          "runsCount": 1000,
+          "totalMs": 425.54480900001363
+        }
+      }
+    }
+  ]
+}
