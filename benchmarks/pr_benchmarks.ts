@@ -79,8 +79,8 @@ bench({
   runs: 1000,
   func(b): void {
     b.start();
-    let a = new Array(500);
-    for (let i = 0; i < 500; i++) {
+    let a = new Array(300);
+    for (let i = 0; i < 300; i++) {
       a.pop();
       a = a.reverse();
     }
