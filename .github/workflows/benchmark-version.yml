@@ -20,7 +20,7 @@ jobs:
           run: deno run --allow-hrtime --allow-write ./benchmarks/pr_benchmarks.ts --save-history --id=${{ env.RELEASE_VERSION }}
         - uses: EndBug/add-and-commit@v4
           with:
-            message: 'Benchmark history for '${{ env.RELEASE_VERSION }}
+            message: 'Benchmark history for ${{ env.RELEASE_VERSION }}'
           env:
             # This is necessary in order to push a commit to the repo
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
